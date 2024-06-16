@@ -6,10 +6,12 @@ fun main() {
 
     (0 .. n).forEach { i -> 
         (0 until n-i).forEach { j -> 
-            print("${'A' + ch++} ")
+            print("${'A' + (ch%26)} ")
+            ch++
         }
         (0 until i).forEach { j -> 
-            print("${num++} ")
+            print("${num%10} ")
+            num++
         }
         print("\n")
     }
