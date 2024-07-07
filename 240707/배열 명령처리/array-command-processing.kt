@@ -22,7 +22,7 @@ fun main() {
             2 -> arr[i] and (1 shr (n-x)).inv()
             3 -> (arr[i] shr 1)
             else -> {
-                (arr[i] shl 1) and ((1 shl 6)-1)
+                (arr[i] shl 1) and ((1 shl n)-1)
             }
         }
     }
