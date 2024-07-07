@@ -26,13 +26,13 @@ fun main() {
                 arr[i][x] = 0
             }
             3 -> {
-                for (k in n.downTo(0)) {
-                    arr[i][k+1] = arr[i][k]
+                for (k in n.downTo(1)) {
+                    arr[i][k] = arr[i][k-1]
                 }
             }
             else -> {
                 (1 .. n).forEach { k ->
-                    arr[i][k-1] = arr[i][k]
+                    arr[i][k] = arr[i][k+1]
                 }
             }
         }
@@ -40,11 +40,7 @@ fun main() {
 
     val sett = mutableSetOf<String>()
     (1 .. n).forEach { i ->
-        var str = ""
-        (1..n).forEach {j ->
-            str += arr[i][j]
-        }
-        sett.add(str)
+        sett.add(arr[i].contentToString())
     }
     print(sett.size)
 }
