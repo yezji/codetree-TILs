@@ -18,8 +18,8 @@ fun main() {
         }
 
         arr[i] = when (a) {
-            1 -> arr[i] or (1 shl (x))
-            2 -> arr[i] and (1 shr (x)).inv()
+            1 -> arr[i] or (1 shl (n-x-1))
+            2 -> arr[i] and (1 shr (n-x-1)).inv()
             3 -> (arr[i] shr (1)) and ((1 shl 20) - 1)
             else -> (arr[i] shl (1)) and ((1 shl 20) - 1)
         }
