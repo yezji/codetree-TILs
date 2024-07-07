@@ -1,4 +1,5 @@
-import java.io.*
+import java.io.BufferedReader
+import java.io.InputStreamReader
 import java.util.*
 
 fun main() {
@@ -6,8 +7,13 @@ fun main() {
     var st = StringTokenizer(br.readLine())
     val n = st.nextToken().toInt()
     val m = st.nextToken().toInt()
-    val arr = Array<Array<Int>>(n+2){
-        Array<Int>(n+2){0}
+    val list = LinkedList<LinkedList<Int>>()
+    (1..n).forEach {
+        val ll = LinkedList<Int>()
+        (1..n).forEach {
+            ll.push(0)
+        }
+        list.push(ll)
     }
     (0 until m).forEach {
         st = StringTokenizer(br.readLine())
@@ -20,27 +26,28 @@ fun main() {
 
         when (a) {
             1 -> {
-                arr[i][x] = 1
+                list[i][x] = 1
             }
+
             2 -> {
-                arr[i][x] = 0
+                list[i][x] = 0
             }
+
             3 -> {
-                for (k in n.downTo(1)) {
-                    arr[i][k] = arr[i][k-1]
-                }
+                list[i].addFirst(0)
+                list[i].removeLast()
             }
+
             else -> {
-                (1 .. n).forEach { k ->
-                    arr[i][k] = arr[i][k+1]
-                }
+                list[i].removeFirst()
+                list[i].addLast(0)
             }
         }
     }
 
-    val sett = mutableSetOf<String>()
-    (1 .. n).forEach { i ->
-        sett.add(arr[i].contentToString())
+    val sett = mutableSetOf<LinkedList<Int>>()
+    (0 until n).forEach { i ->
+        sett.add(list[i])
     }
     print(sett.size)
 }
