@@ -1,4 +1,5 @@
-import java.io.*
+import java.io.BufferedReader
+import java.io.InputStreamReader
 import java.util.*
 
 fun main() {
@@ -6,8 +7,7 @@ fun main() {
     var st = StringTokenizer(br.readLine())
     val n = st.nextToken().toInt()
     val m = st.nextToken().toInt()
-    val arr = Array(n){ 0 }
-
+    val arr = Array<Int>(n) { 0 }
     (0 until m).forEach {
         st = StringTokenizer(br.readLine())
         val a = st.nextToken().toInt()
@@ -17,11 +17,22 @@ fun main() {
             x = st.nextToken().toInt() - 1
         }
 
-        arr[i] = when (a) {
-            1 -> arr[i] or (1 shl (n-x))
-            2 -> arr[i] and (1 shl (n-x)).inv()
-            3 -> arr[i] shr 1
-            else -> arr[i] shl 1
+        when (a) {
+            1 -> {
+                arr[i] = arr[i] or (1 shl (n-x))
+            }
+
+            2 -> {
+                arr[i] = arr[i] and (1 shr (n-x)).inv()
+            }
+
+            3 -> {
+                arr[i] = arr[i] shr (1)
+            }
+
+            else -> {
+                arr[i] = (arr[i] shl (1)) and ((1 shl 20) - 1)
+            }
         }
     }
 
@@ -29,5 +40,5 @@ fun main() {
     (0 until n).forEach { i ->
         sett.add(arr[i])
     }
-    println(sett.size)
+    print(sett.size)
 }
