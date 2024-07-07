@@ -17,22 +17,11 @@ fun main() {
             x = st.nextToken().toInt() - 1
         }
 
-        when (a) {
-            1 -> {
-                arr[i] = arr[i] or (1 shl (n-x))
-            }
-
-            2 -> {
-                arr[i] = arr[i] and (1 shr (n-x)).inv()
-            }
-
-            3 -> {
-                arr[i] = arr[i] shr (1)
-            }
-
-            else -> {
-                arr[i] = (arr[i] shl (1)) and ((1 shl 20) - 1)
-            }
+        arr[i] = when (a) {
+            1 -> arr[i] or (1 shl (n-x))
+            2 -> arr[i] and (1 shr (n-x)).inv()
+            3 -> (arr[i] shr (1)) and ((1 shl 20) - 1)
+            else -> (arr[i] shl (1)) and ((1 shl 20) - 1)
         }
     }
 
