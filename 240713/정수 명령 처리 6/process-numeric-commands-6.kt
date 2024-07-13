@@ -3,7 +3,7 @@ import java.util.*
 
 fun main() {
     val br = BufferedReader(InputStreamReader(System.`in`))
-    val pq = PriorityQueue<Int>()
+    val pq = PriorityQueue<Int>(Collections.reverseOrder())
     val n = br.readLine().toInt()
     (1 .. n).forEach {
         val st = StringTokenizer(br.readLine())
