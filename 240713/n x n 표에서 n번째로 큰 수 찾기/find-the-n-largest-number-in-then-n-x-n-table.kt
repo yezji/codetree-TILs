@@ -11,8 +11,8 @@ fun main() {
         val item = st.nextToken().toInt()
         (1 .. n).forEach {j -> 
             stt.add(item/j)
+            if (stt.size > n) stt.pollFirst()
         }
-        if (stt.size > n) stt.pollFirst()
     }
     (1 .. n).forEach{
         val result = stt.pollLast()
