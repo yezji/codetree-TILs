@@ -11,7 +11,7 @@ fun main() {
         val y = st.nextToken().toInt()
         if (mp.containsKey(x).not() || mp.getValue(x) > y) mp[x] = y
     }
-    var sum = 0
+    var sum = 0L
     mp.values.forEach { 
         sum += it
     }
