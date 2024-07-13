@@ -12,7 +12,7 @@ fun main() {
         (if (stt.size < 3) -1
         else {
             var limit = 3
-            var result = 1
+            var result = 1L
             val iter = stt.iterator()
             while (iter.hasNext() && limit-- > 0) {
                 result *= iter.next()
