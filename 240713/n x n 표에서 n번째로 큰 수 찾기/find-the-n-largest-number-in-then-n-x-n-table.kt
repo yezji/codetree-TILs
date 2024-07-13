@@ -6,11 +6,13 @@ fun main() {
     val n = br.readLine().toInt()
     val stt = TreeSet<Int>()
     val st = StringTokenizer(br.readLine())
+
     (1 .. n).forEach { i ->
         val item = st.nextToken().toInt()
         (1 .. n).forEach {j -> 
             stt.add(item/j)
         }
+        if (stt.size > n) stt.pollFirst()
     }
     (1 .. n).forEach{
         val result = stt.pollLast()
