@@ -1,6 +1,5 @@
 import java.io.*
 import java.util.*
-import java.math.*
 
 fun main() {
     val br = BufferedReader(InputStreamReader(System.`in`))
@@ -10,10 +9,10 @@ fun main() {
     (1 .. n).forEach {
         pq.add(st.nextToken().toInt())
     }
-    while (pq.size > 2) {
+    while (pq.size >= 2) {
         val one = pq.poll()
         val two = pq.poll()
-        pq.add(Math.abs(one-two))
+        if (one != two) pq.add(one-two)
     }
-    println(pq.peek())
+    println(pq.poll() ?: "-1")
 }
