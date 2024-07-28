@@ -1,6 +1,5 @@
 import java.io.*
 import java.util.*
-import java.math.*
 
 fun main() {
     val br = BufferedReader(InputStreamReader(System.`in`))
@@ -8,7 +7,13 @@ fun main() {
     val n = st.nextToken().toInt()
     val m = st.nextToken().toInt()
     val pq = PriorityQueue<Pair<Int, Int>>() {
-        a, b -> (Math.abs(a.first) + Math.abs(a.second)) - (Math.abs(b.first) + Math.abs(b.second))
+        a, b -> if (a.first+a.second != b.first+b.second) {
+            (a.first + a.second) - (b.first + b.second)
+        } else if (a.first != b.first) {
+            a.first - b.first
+        } else {
+            a.second - b.second
+        }
     }
     (1 .. n).forEach {
         st = StringTokenizer(br.readLine())
