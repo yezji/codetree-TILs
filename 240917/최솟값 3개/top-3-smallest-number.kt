@@ -18,7 +18,7 @@ fun main() {
             val first = pq.poll()
             val second = pq.poll()
             val third = pq.poll()
-            println(first * second * third)
+            println(first.toLong() * second.toLong() * third.toLong())
             pq.add(first)
             pq.add(second)
             pq.add(third)
