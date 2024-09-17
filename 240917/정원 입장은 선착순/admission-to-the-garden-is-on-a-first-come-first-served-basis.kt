@@ -19,6 +19,7 @@ fun main() {
         val duration = st.nextToken().toInt()
         numbered.add(Triple(idx, arrived, duration))
     }
+    numbered.add(Triple(n, Int.MAX_VALUE, 0))
 
     val waiting = PriorityQueue<Triple<Int, Int, Int>>() { p1, p2 -> 
         p1.first - p2.first
@@ -42,7 +43,7 @@ fun main() {
             exitTime = now.second + now.third
         }
         else { // needs wait
-            waiting.add(now)
+            waiting.add(Triple(now.first * -1, now.second, now.third))
         }
     }
 
