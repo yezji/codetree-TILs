@@ -15,12 +15,13 @@ fun main() {
             println("-1")
         }
         else {
-            val iter = pq.iterator()
-            var result = 1
-            (0 until 3).forEach {
-                result *= iter.next()
-            }
-            println(result)
+            val first = pq.poll()
+            val second = pq.poll()
+            val third = pq.poll()
+            println(first * second * third)
+            pq.add(first)
+            pq.add(second)
+            pq.add(third)
         }
     }
 }
