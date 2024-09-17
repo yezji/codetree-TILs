@@ -25,8 +25,8 @@ fun main() {
     }
 
 
-    var maxi = 0
-    var exitTime = 0
+    var maxi = 0L
+    var exitTime = 0L
     while (!numbered.isEmpty()) {
         val now = numbered.poll()
 
