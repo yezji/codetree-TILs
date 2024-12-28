@@ -3,17 +3,24 @@ import java.util.*
 
 fun main() {
     val br = BufferedReader(InputStreamReader(System.`in`))
-    val mp: MutableMap<String, Int> = mutableMapOf()
-    br.readLine()
-    br.readLine().split(" ").forEach {
-        val value = mp[it]
+    val mp: MutableMap<Int, Int> = mutableMapOf()
+    var st = StringTokenizer(br.readLine())
+    var n = st.nextToken().toInt()
+    var m = st.nextToken().toInt()
+
+    st = StringTokenizer(br.readLine())
+    while (n-- > 0) {
+        val key = st.nextToken().toInt()
+        val value = mp[key]
         if (value == null) {
-            mp.put(it, 1)
+            mp.put(key, 1)
         } else {
-            mp.put(it, value + 1)
+            mp.put(key, value + 1)
         }
     }
-    br.readLine().split(" ").forEach {
-        print("${mp[it] ?: 0} ")
+    st = StringTokenizer(br.readLine())
+    while (m-- > 0) {
+        val key = st.nextToken().toInt()
+        print("${mp[key] ?: 0} ")
     }
 }
